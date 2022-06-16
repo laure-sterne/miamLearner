@@ -1,11 +1,12 @@
-var express = require('express');
-var app = express();
+const express = require('express')
+const app = express()
+const port = 3000
 
 app.get('/', function (req, res) {
     res.send('<html><body><h1>Hello World</h1></body></html>');
 });
 
-app.post('/submit-data', function (req, res) {
+app.post('/createPeriodicTask', function (req, res) {
     res.send('POST Request');
 });
 
@@ -17,6 +18,6 @@ app.delete('/delete-data', function (req, res) {
     res.send('DELETE Request');
 });
 
-var server = app.listen(5000, function () {
-    console.log('Node server is running..');
+app.listen(port, function () {
+    console.log(`Node server is running on port ${port}`);
 });

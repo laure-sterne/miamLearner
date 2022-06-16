@@ -29,4 +29,4 @@ At the end, you start the server
   npm start
 ```
 
-Now, you can see your csv file as a pretty table!
+Now, you can see your csv file as a pretty table at this address: http://localhost:3000/read.html !

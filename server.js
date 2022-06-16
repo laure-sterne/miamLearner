@@ -1,13 +1,18 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const fs = require('fs')
-const stringify = require('csv-stringify').stringify
-const parse = require('csv-parse').parse
-const os = require('os')
-const multer  = require('multer')
-const upload = multer({ dest: os.tmpdir() })
-const app = express()
-const port = 3000
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const parse = require('csv-parse').parse;
+const os = require('os');
+const multer  = require('multer');
+const upload = multer({ dest: os.tmpdir() });
+const cron = require('node-cron');
+const app = express();
+const port = 3000;
+
+cron.schedule("* * * * *", function() {
+    console.log("Running a task every minute");
+    
+});
 
 app.get('/', function (req, res) {
     res.send('<html><body><h1>Hello World</h1></body></html>');
@@ -17,7 +22,7 @@ app.post('/post-data', function (req, res) {
     res.send('POST Request');
 });
 
-app.post('/read', upload.single('file'), (req, res) => {
+/*var getAllData =*/ app.post('/read', upload.single('file'), (req, res) => {
     const file = req.file
   
     const data = fs.readFileSync(file.path)

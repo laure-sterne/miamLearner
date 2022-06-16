@@ -31,6 +31,8 @@
       file = this.files[0]
     })
 
+    var sumLearnerId = []
+
     submitFile.addEventListener('click', function () {
       if (!file || file.type !== 'text/csv') {
         alert('Please choose a CSV file')
@@ -60,6 +62,7 @@
           console.log("I am the rows", rows)
           console.log("I am the categories", columns)
 
+          console.log("I am LearnerId", columns[4])
           
           const table = new Tabulator("#csvTable", {
             height:"300px",
